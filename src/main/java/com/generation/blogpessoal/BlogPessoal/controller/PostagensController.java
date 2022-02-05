@@ -2,6 +2,8 @@ package com.generation.blogpessoal.BlogPessoal.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -44,12 +46,12 @@ public class PostagensController {
 	}
 	
 	@PostMapping("/new")
-	public ResponseEntity <PostagensModel> newPostagens (@RequestBody PostagensModel newPostagens) {
+	public ResponseEntity <PostagensModel> newPostagens (@Valid @RequestBody PostagensModel newPostagens) {
 		return ResponseEntity.status(201).body(repository.save(newPostagens));
 	}
 	
 	@PutMapping("/edit")
-	public ResponseEntity <PostagensModel> editUsuarios (@RequestBody PostagensModel editPostagens) {
+	public ResponseEntity <PostagensModel> editUsuarios (@Valid @RequestBody PostagensModel editPostagens) {
 		return ResponseEntity.status (200).body(repository.save(editPostagens));
 	}
 	

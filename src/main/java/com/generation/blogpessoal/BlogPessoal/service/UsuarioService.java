@@ -32,14 +32,6 @@ public class UsuarioService {
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(usuario));
 	}
 	
-//	public UsuariosModel cadastrarUsuario (UsuariosModel usuario) {
-//		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-//
-//		String senhaEncoder = encoder.encode(usuario.getSenha());
-//		usuario.setSenha(senhaEncoder);
-//		return repository.save(usuario);
-//	}
-	
 	public Optional<Login> logar(Optional<Login> user){
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		Optional<UsuariosModel> usuario = repository.findByUsuario(user.get().getUsuario());		

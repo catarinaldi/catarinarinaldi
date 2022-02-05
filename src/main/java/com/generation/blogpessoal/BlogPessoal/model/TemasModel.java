@@ -22,7 +22,7 @@ public class TemasModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotBlank
+	@NotBlank(message = "O atributo Descrição é obrigatório")
 	private String descricao;
 
 	@OneToMany(mappedBy = "temasModel", cascade = CascadeType.REMOVE)

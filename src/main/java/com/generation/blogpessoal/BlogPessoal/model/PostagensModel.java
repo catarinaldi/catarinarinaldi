@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -23,10 +24,12 @@ public class PostagensModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotBlank
+	@NotBlank(message = "O atributo título é Obrigatório!")
+	@Size(min = 5, max = 100, message = "O atributo título deve conter no mínimo 05 e no máximo 100 caracteres")
 	private String titulo;
 	
-	@NotBlank
+	@NotBlank(message = "O atributo texto é Obrigatório!")
+	@Size(min = 5, max = 1000, message = "O atributo texto deve conter no mínimo 5 e no máximo 1000 caracteres")
 	private String texto;
 	
 	@Temporal(TemporalType.TIMESTAMP)
